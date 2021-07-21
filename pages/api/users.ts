@@ -10,7 +10,7 @@ const getUsers = async (req: NextApiRequest, res: NextApiResponse) => {
         driver: sqlite3.Database
     })
 
-    const users = await db.all('select * from user')
+    const users = await db.all('select id, email, name from user')
     
     res.json(users)
 }

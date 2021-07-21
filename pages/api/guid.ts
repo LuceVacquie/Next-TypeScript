@@ -1,0 +1,1 @@
+export const guid = 'a505557c-c0ab-4f7f-bd19-842ae4d6bdb0';

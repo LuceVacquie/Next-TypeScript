@@ -16,8 +16,8 @@ async function setup() {
     const users = await db.all('SELECT * FROM user')
     console.log(JSON.stringify(users, null, 2))
 
-    const vehicules = await db.all('SELECT * FROM vehicule')
-    console.log(JSON.stringify(vehicules, null, 2))
+    const cars = await db.all('SELECT * FROM car')
+    console.log(JSON.stringify(cars, null, 2))
 }
 
 setup()

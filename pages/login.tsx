@@ -1,10 +1,15 @@
 import React, { useRef, useState } from 'react'
+import { useRouter } from 'next/router'
+import {useAuthContext} from '../AuthProvider'
 
 const Login = () => {
+
+    const { setIsLoggedIn }:any = useAuthContext()
+
     const emailRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
 
-    const [message, setMessage] = useState<any>(null)
+    const router = useRouter()
 
     const handleLogin = async () => {
         const response = await fetch('http://localhost:3000/api/login', {
@@ -19,7 +24,9 @@ const Login = () => {
         })
         const json = await response.json()
 
-        setMessage(json)
+        setIsLoggedIn(true)
+        
+        router.push('/')
     }
 
     return(

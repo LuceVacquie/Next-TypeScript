@@ -4,15 +4,15 @@ import {open} from 'sqlite'
 import sqlite3 from 'sqlite3'
 
 
-const getVehiculeById = async (req: NextApiRequest, res: NextApiResponse) => {
+const getCarsById = async (req: NextApiRequest, res: NextApiResponse) => {
     const db = await open({
         filename: './database.db',
         driver: sqlite3.Database
     })
 
-    const vehicule = await db.get('select * from vehicule where id = ?', [req.query.id])
+    const carsByUser = await db.all('select * from car where ownerId = ?', [req.query.id])
     
-    res.json(vehicule)
+    res.json(carsByUser)
 }
 
-export default getVehiculeById;
+export default getCarsById;

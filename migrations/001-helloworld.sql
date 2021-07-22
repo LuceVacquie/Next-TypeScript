@@ -6,7 +6,7 @@ CREATE TABLE User (
     password TEXT
 );
 
-CREATE TABLE Vehicule (
+CREATE TABLE Car (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     brand TEXT,
     model TEXT,
@@ -16,4 +16,4 @@ CREATE TABLE Vehicule (
 
 -- DOWN
 DROP TABLE User;
-DROP TABLE Vehicule;
+DROP TABLE Car;

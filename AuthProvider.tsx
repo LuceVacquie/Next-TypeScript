@@ -5,9 +5,6 @@ interface AuthContextProps{
     setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>,
     isRegistered: boolean,
     setIsRegistered: React.Dispatch<React.SetStateAction<boolean>>,
-    register: () => void,
-    login: () => void,
-    logout: () => void
 }
 
 const authContext = createContext<AuthContextProps | null>(null)
@@ -19,27 +16,11 @@ const AuthProvider:FC = ({children}) => {
     const[isRegistered, setIsRegistered] = useState(false)
     const[isLoggedIn, setIsLoggedIn] = useState(false)
 
-    const register = () => {
-        setIsLoggedIn(true)
-        setIsRegistered(true)
-    }
-
-    const login = () => {
-        setIsLoggedIn(true)
-    }
-
-    const logout = () => {
-        setIsLoggedIn(false)
-    }
-
     const state = {
         isLoggedIn,
         setIsLoggedIn,
         isRegistered,
-        setIsRegistered,
-        register,
-        login,
-        logout
+        setIsRegistered
     }
 
     return(

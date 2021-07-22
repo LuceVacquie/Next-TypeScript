@@ -1,7 +1,7 @@
 import React from 'react'
-// import fetch from 'isomorphic-unfetch'
 import { NextPageContext, NextPage } from 'next'
 import getData from './api/getData'
+import CarCard from './components/cardCard'
 
 interface Props {
     cars: any,
@@ -9,10 +9,14 @@ interface Props {
 
 const Cars:NextPage<Props> = ({cars}) => {
 
+    const carsList:Array{} = JSON.stringify(cars)
+    console.log(carsList)
     return(
         <div>
             <h1>List of cars</h1>
-            {JSON.stringify(cars)}
+            {carsList.map((car:Object) => {
+                <CarCard key={car.id}/>
+            })}
         </div>
     )
 }

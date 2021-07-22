@@ -16,7 +16,7 @@ import {useAuthContext} from '../AuthProvider'
 
 export default function Home() {
 
-  const {isLoggedIn, isRegistered}:any = useAuthContext()
+  const {isLoggedIn}:any = useAuthContext()
 
   return (
     <Container>
@@ -28,34 +28,35 @@ export default function Home() {
 
       <Main>
         <Navbar>
-          
+
           {isLoggedIn ?
-          <>
-            <Link href='/profile'>
-            <a>Profile</a>
-          </Link>
-          <Link href='/cars'>
-            <a>Cars</a>
-          </Link>
-          </>
+            <>
+              <Link href='/profile'>
+                <a>Profile</a>
+              </Link>
+              <Link href='/cars'>
+                <a>Cars</a>
+              </Link>
+            </>
           :
-          <>
-            <Link href='/register'>
-              <a>Register</a>
-            </Link>
-            <Link href='/login'>
-              <a>Login</a>
-            </Link>
-          </>
+            <>
+              <Link href='/register'>
+                <a>Register</a>
+              </Link>
+              <Link href='/login'>
+                <a>Login</a>
+              </Link>
+            </>
           }
         
         </Navbar>
-      </Main>
+    </Main>
 
-      <Footer>
-        <p>Footer</p>
-      </Footer>
-    </Container>
+    <Footer>
+      <p>Footer</p>
+    </Footer>
+  </Container>
+    
   )
 }
 

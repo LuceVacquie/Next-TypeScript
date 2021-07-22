@@ -14,7 +14,9 @@ const register = async (req: NextApiRequest, res: NextApiResponse) => {
     if(req.method === 'POST') {
         hash(req.body.password, 10, async function(err, hash){
 
-        const statement = await db.prepare('INSERT INTO user (name, email, password) values (?, ?, ?)')
+        const statement = await db.prepare(
+            'INSERT INTO user (name, email, password) values (?, ?, ?)'
+        )
         const result = await statement.run(
             req.body.name, 
             req.body.email, 

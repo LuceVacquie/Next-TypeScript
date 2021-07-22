@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react'
 
-const Register = () => {
+const Login = () => {
     const emailRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
 
     const [message, setMessage] = useState<any>(null)
 
-    const handleRegistration = async () => {
-        const response = await fetch('http://localhost:3000/api/register', {
+    const handleLogin = async () => {
+        const response = await fetch('http://localhost:3000/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'
@@ -24,12 +24,12 @@ const Register = () => {
 
     return(
         <div>
-            <h1>Register</h1>
+            <h1>Login</h1>
             <input type='text' placeholder='Email' ref={emailRef}/>
             <input type='password' placeholder='Password' ref={passwordRef}/>
-            <button onClick={handleRegistration}>Register</button>
+            <button onClick={handleLogin}>Login</button>
         </div>
     )
 }
 
-export default Register;
+export default Login;

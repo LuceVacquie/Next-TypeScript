@@ -16,7 +16,7 @@ import {useAuthContext} from '../AuthProvider'
 
 export default function Home() {
 
-  const {isLoggedIn}:any = useAuthContext()
+  const {isLoggedIn, logout}:any = useAuthContext()
 
   return (
     <Container>
@@ -37,6 +37,9 @@ export default function Home() {
               <Link href='/cars'>
                 <a>Cars</a>
               </Link>
+              <button onClick={logout}>
+                Logout
+              </button>
             </>
           :
             <>
@@ -79,6 +82,7 @@ const Main = styled.main`
 
 const Navbar = styled.div`
   flex: 10%;
+  height: 50px;
   display: flex;
   justify-content: space-evenly;
 `;

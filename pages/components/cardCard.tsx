@@ -9,12 +9,17 @@ interface Props {
 
 const CarCard:FC<Props> = ({brand, model, year}) => {
     return(
-        <div>
+        <Container>
             <div>Make: {brand}</div>
             <div>Model: {model}</div>
             <div>Year: {year}</div>
-        </div>
+        </Container>
     )
 }
+
+//STYLED COMPONENTS
+const Container = styled.div`
+    background-color: yellow;
+`;
 
 export default CarCard;

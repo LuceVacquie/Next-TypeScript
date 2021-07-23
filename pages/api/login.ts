@@ -27,7 +27,7 @@ const login = async (req: NextApiRequest, res: NextApiResponse) => {
                 res.setHeader('Set-Cookie', cookie.serialize('auth', jwt, {
                     httpOnly: true,
                     secure: process.env.NODE_ENV !== 'development', // if want a https website
-                    sameSite: 'strict',
+                    sameSite: 'strict', //or true
                     maxAge: 3600, //expiration time of the session
                     path: '/' //by default cookie path = /api -> don't want that
                 }))

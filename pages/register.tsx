@@ -1,34 +1,32 @@
 import React, { useRef, useState } from 'react'
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 import {useAuthContext} from '../AuthProvider'
 
 const Register = () => {
-    const nameRef = useRef<HTMLInputElement>(null)
-    const emailRef = useRef<HTMLInputElement>(null)
-    const passwordRef = useRef<HTMLInputElement>(null)
+    // const nameRef = useRef<HTMLInputElement>(null)
+    // const emailRef = useRef<HTMLInputElement>(null)
+    // const passwordRef = useRef<HTMLInputElement>(null)
 
-    const { setIsRegistered }:any = useAuthContext()
+    const { handleRegistration, nameRef, emailRef, passwordRef }:any = useAuthContext()
 
-    const router = useRouter()
+    // const router = useRouter()
 
-    const handleRegistration = async () => {
-        const response = await fetch('http://localhost:3000/api/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify({
-                name: nameRef.current?.value,
-                email: emailRef.current?.value,
-                password: passwordRef.current?.value
-            })
-        })
-        const json = await response.json()
+    // const handleRegistration = async () => {
+    //     const response = await fetch('http://localhost:3000/api/register', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type' : 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             name: nameRef.current?.value,
+    //             email: emailRef.current?.value,
+    //             password: passwordRef.current?.value
+    //         })
+    //     })
+    //     const json = await response.json()
 
-        setIsRegistered(true)
-
-        router.push('/')
-    }
+    //     router.push('/')
+    // }
 
     return(
         <div>

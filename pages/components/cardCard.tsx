@@ -1,9 +1,19 @@
-import react from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
 
-const CarCard = () => {
+interface Props {
+    brand: string,
+    model: string,
+    year: number
+}
+
+const CarCard:FC<Props> = ({brand, model, year}) => {
     return(
-        <div>Car card</div>
+        <div>
+            <div>Make: {brand}</div>
+            <div>Model: {model}</div>
+            <div>Year: {year}</div>
+        </div>
     )
 }
 

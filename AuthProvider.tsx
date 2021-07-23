@@ -1,7 +1,7 @@
 //REACT & NEXT
 import React, {FC, createContext, useContext, useState, useRef, useEffect} from 'react'
 import { useRouter } from 'next/router'
-import cookie from 'cookie'
+import cookies from 'cookies'
 
 
 
@@ -24,8 +24,6 @@ const authContext = createContext<AuthContextProps | null>(null)
 
 export const useAuthContext = () => useContext(authContext)
 
-
-
 const AuthProvider:FC = ({children}) => {
 
     //STATES
@@ -35,7 +33,7 @@ const AuthProvider:FC = ({children}) => {
     //CHECK IF COOKIE ALREADY EXISTS
     useEffect(() => {
         //when app loads, check cookies
-        if(cookie.get('auth') !== -1){
+        if(cookies.get('auth') !== -1){
             console.log('cookie is here')
         } else {
             console.log('cookie is not here')

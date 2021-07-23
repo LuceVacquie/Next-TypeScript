@@ -13,6 +13,7 @@
     "@types/jsonwebtoken": "^8.5.4",
     "bcrypt": "^5.0.1",
     "cookie": "^0.4.1",
+    "cookies": "^0.8.0",
     "i": "^0.3.6",
     "jsonwebtoken": "^8.5.1",
     "next": "11.0.1",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@types/cookie": "^0.4.1",
+    "@types/cookies": "^0.7.7",
     "@types/react": "17.0.14",
     "@types/styled-components": "^5.1.11",
     "eslint": "7.31.0",

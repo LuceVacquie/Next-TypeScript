@@ -11,12 +11,11 @@ import styled from 'styled-components'
 //CONTEXT
 import {useAuthContext} from '../AuthProvider'
 
+import Cookies from 'cookies';
+import JWT from 'jsonwebtoken'
 
-
-
-export default function Home() {
-
-  const {isLoggedIn, logout}:any = useAuthContext()
+function Home({ isLoggedIn }) {
+  const { logout }:any = useAuthContext()
 
   return (
     <Container>
@@ -95,3 +94,20 @@ const Footer = styled.footer`
   justify-content: center;
   align-items: center;
 `;
+
+Home.getInitialProps = async ({ req, res }) => {
+      const isServer = !!req
+
+      if (isServer) {
+        // Create a cookies instance
+        const cookies = new Cookies(req, res)
+        // // Get a cookie
+        const authCookie = cookies.get('auth');
+        
+        return { isLoggedIn: !!authCookie }
+      }
+
+      return { isLoggedIn: false }
+}
+
+export default Home;

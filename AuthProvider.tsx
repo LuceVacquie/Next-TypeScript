@@ -1,9 +1,6 @@
 //REACT & NEXT
 import React, {FC, createContext, useContext, useState, useRef, useEffect} from 'react'
 import { useRouter } from 'next/router'
-import cookies from 'cookies'
-
-
 
 interface AuthContextProps{
     isLoggedIn: boolean,
@@ -29,24 +26,6 @@ const AuthProvider:FC = ({children}) => {
     //STATES
     const[isRegistered, setIsRegistered] = useState(false)
     const[isLoggedIn, setIsLoggedIn] = useState(false)
-
-    //CHECK IF COOKIE ALREADY EXISTS
-    useEffect(() => {
-        //when app loads, check cookies
-        if(cookies.get('auth') !== -1){
-            console.log('cookie is here')
-        } else {
-            console.log('cookie is not here')
-        }
-        //if cookie exists, verify jwt is valid (expired or not)
-        
-        //if jwt no expired
-        // setIsLoggedIn(true)
-
-        //if jwt expired, delete the cookie
-
-    }, [])
-    //renders only once when the authProvider is first called
 
     //REGISTER FUNCTION
     const nameRef = useRef<HTMLInputElement>(null)
@@ -85,6 +64,8 @@ const AuthProvider:FC = ({children}) => {
             })
         })
         const json = await response.json()
+
+        console.log(json)
 
         setIsLoggedIn(true)
         
